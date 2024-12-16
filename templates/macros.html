@@ -1,0 +1,38 @@
+<!-- macros.html -->
+
+{% macro render_name_form(form) %}
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <label for="name">Jméno:</label>
+        {{ form.name() }}
+        <br>
+        <label for="age">Věk:</label>
+        {{ form.age() }}
+        <br>
+        <button type="submit">{{ form.submit() }}</button>
+    </form>
+{% endmacro %}
+
+{% macro render_names_table(names) %}
+    <h2>Seznam jmen a věků:</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Jméno</th>
+                <th>Věk</th>
+                <th>Akce</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for name in names %}
+            <tr>
+                <td>{{ name.id }}</td>
+                <td>{{ name.name }}</td>
+                <td>{{ name.age }}</td>
+                <td><a href="{{ url_for('delete', id=name.id) }}">Smazat</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endmacro %}

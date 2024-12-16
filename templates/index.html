@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabulka jmen</title>
+</head>
+<body>
+    <h1>Přidejte jméno a věk</h1>
+
+    <!-- Použití makra pro formulář -->
+    {% from "macros.html" import render_name_form %}
+    {{ render_name_form(form) }}  <!-- Zavolání makra pro formulář -->
+
+    <!-- Použití makra pro tabulku jmen -->
+    {% from "macros.html" import render_names_table %}
+    {{ render_names_table(names) }}  <!-- Zavolání makra pro tabulku -->
+
+</body>
+</html>
